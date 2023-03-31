@@ -38,5 +38,28 @@ function login(username, password){
 }
 
 //try to login
-console.log(login ("ali", "password"))
-console.log(login("ali", "123456"))
+//console.log(login ("ali", "password"))
+//console.log(login("ali", "123456"))
+
+
+ function register(newusername, newpassword, newname, newemail){
+     //TO CHECK IF USERNAME EXIST
+     let matched = dbUsers.find(element =>
+        element.username == newusername
+    )
+    if(matched){
+       return "username already exist"
+}else{
+    dbUsers.push({
+        username: newusername,
+        password: newpassword,
+        name: newname,
+        email: newemail
+     })
+    }
+    //push new element to array
+ }
+
+//call function register
+register("abu", "425", "abu", "abu@utem.edu.my")
+console.log(dbUsers)
